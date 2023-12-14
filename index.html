@@ -210,16 +210,14 @@
                     $('.student_on_list ul').append(`<li>${student_name}</li>`);
                });
 
-               if (student_on.length < 1) {
-                    student_off = [];
+               if (student_on.length > 0) {
+                    $.each(students, (i, v)=> {
+                         if (!student_on.includes(v)) {
+                              $('.student_off_list ul').append(`<li>${v}</li>`);
+                              student_off.push(v);
+                         }
+                    });
                }
-
-               $.each(students, (i, v)=> {
-                    if (!student_on.includes(v)) {
-                         $('.student_off_list ul').append(`<li>${v}</li>`);
-                         student_off.push(v);
-                    }
-               });
 
                $('.student_on').text(student_on.length);
                $('.student_off').text(student_off.length);
