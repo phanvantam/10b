@@ -210,6 +210,10 @@
                     $('.student_on_list ul').append(`<li>${student_name}</li>`);
                });
 
+               if (student_on.length < 1) {
+                    student_off = [];
+               }
+
                $.each(students, (i, v)=> {
                     if (!student_on.includes(v)) {
                          $('.student_off_list ul').append(`<li>${v}</li>`);
